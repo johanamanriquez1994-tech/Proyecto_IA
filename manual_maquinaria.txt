@@ -1,0 +1,14 @@
+MANUAL DE TALLER - MOTOR INDUSTRIAL CAT 320
+[Página 1]
+El motor CAT 320 requiere un mantenimiento preventivo cada 250 horas de operación.
+
+[Página 2]
+ESPECIFICACIONES DE TORQUE:
+El torque de apriete recomendado para los pernos de la culata es de 150 Lb-pie (libras-pie).
+Asegúrese de aplicar el apriete en el orden correcto indicado en el diagrama de estrella.
+
+[Página 3]
+SEGURIDAD:
+Nunca manipule las mangueras hidráulicas cuando el sistema esté bajo cargo.
+
+        

@@ -10,7 +10,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_community.llms import Ollama 
 
 def preparar_sistema_conocimiento(ruta_manual):
-    """Lee el manual técnico y lo guarda en la base de datos vectorial local."""
+    
     if not os.path.exists(ruta_manual):
         raise FileNotFoundError(f"No se encontró el manual: {ruta_manual}")
         
@@ -25,7 +25,7 @@ def preparar_sistema_conocimiento(ruta_manual):
     return vector_store.as_retriever(search_kwargs={"k": 2})
 
 def mapear_trazabilidad_pagina(docs):
-    """Analiza de qué página proviene el dato para la auditoría del mecánico."""
+    
     contexto_lista = []
     fuentes = set()
     for doc in docs:
@@ -40,7 +40,7 @@ def mapear_trazabilidad_pagina(docs):
     return "\n\n".join(contexto_lista), list(fuentes)
 
 def planificar_prioridad_tarea(pregunta):
-    """Analiza la consulta del mecánico para clasificar la gravedad de la tarea."""
+  
     pregunta_min = pregunta.lower()
     if "seguridad" in pregunta_min or "nunca" in pregunta_min or "manipule" in pregunta_min:
         return "CRÍTICA: PROTOCOLO DE SEGURIDAD INDUSTRIAL"
@@ -49,7 +49,7 @@ def planificar_prioridad_tarea(pregunta):
     return "NORMAL: RUTINA DE MANTENIMIENTO PREVENTIVO"
 
 class AgenteSoporteTerreno:
-    """Clase principal que simula el comportamiento autónomo del asistente de IA."""
+    
     def __init__(self, retriever):
         self.retriever = retriever
         self.llm = Ollama(model="llama3")
@@ -71,13 +71,13 @@ class AgenteSoporteTerreno:
         self.cadena_base = self.prompt_sistema | self.llm | StrOutputParser()
 
     def obtener_historial_sesion(self, session_id: str):
-        """Asigna o recupera el bloque de notas de memoria para este mecánico."""
+       
         if session_id not in self.historial_global:
             self.historial_global[session_id] = ChatMessageHistory()
         return self.historial_global[session_id]
 
     def consultar(self, session_id: str, pregunta: str):
-        """Procesa de punta a punta la consulta usando memoria y planificación."""
+       
        
         docs = self.retriever.invoke(pregunta)
         contexto, fuentes = mapear_trazabilidad_pagina(docs)

@@ -5,7 +5,7 @@ import pandas as pd
 
 st.set_page_config(page_title="Dashboard de Observabilidad IA", layout="wide")
 
-st.title("📊 Panel de Observabilidad y Métricas de Rendimiento")
+st.title(" Panel de Observabilidad y Métricas de Rendimiento")
 st.subheader("Industrial-Tech Solutions S.A. - Soporte de Agentes en Terreno")
 st.markdown("---")
 

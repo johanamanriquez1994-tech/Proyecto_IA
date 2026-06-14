@@ -1,31 +1,24 @@
-# Agente de IA Local de Soporte Técnico - Industrial-Tech Solutions S.A.
+#  Sistema de Observabilidad y Soporte de Agentes con IA
+**Duoc UC - Optativo Ingeniería de Soluciones con IA (ISY0101)**
+**Evaluación Parcial N°3**
 
-Este repositorio contiene el prototipo de un Agente de Inteligencia Artificial Autónomo con arquitectura RAG (Retrieval-Augmented Generation) diseñado para asistir a mecánicos automotrices en terreno de forma 100% local.
+Este repositorio contiene la evolución del Agente de IA para soporte de mecánicos en terreno (*Industrial-Tech Solutions S.A.*), integrando herramientas de observabilidad, auditoría de logs y un panel visual interactivo.
 
-##  Diagrama de Orquestación de Componentes (IE7)
+---
 
-El flujo de información y acoplamiento de tecnologías del agente sigue la siguiente estructura lógica:
+##  Historial de Modificaciones (Entrega Actual)
 
+En esta tercera fase del proyecto, se realizaron las siguientes modificaciones estructurales sobre la versión previa:
 
+1. **Refactorización en `app.py` (Métricas de Latencia):** Se incorporó el módulo nativa `time` para implementar un cronómetro de precisión (`time.time()`). Ahora la función `consultar` calcula y retorna los segundos exactos de inferencia de Llama 3.
+2. **Sistema de Auditoría Persistente:** Se diseñó la función `guardar_registro_log` utilizando la librería `json`. El agente escribe automáticamente cada interacción de forma histórica sin sobrescribir los datos previos.
+3. **Creación de `dashboard.py` (Nueva Incorporación):** Archivo totalmente nuevo que utiliza **Streamlit** y **Pandas** para leer de manera asíncrona el archivo de logs y proyectar gráficos estadísticos interactivos de rendimiento.
 
-[manual_maquinaria.txt] ──> [Text Loader & Splitter] ──> [HuggingFace Embeddings]
-│
-▼
-[Consulta del Mecánico] ──> [Planificador de Tareas] ──> [ChromaDB Vector Store]
-│                                                       │
-▼                                                       ▼
-[Historial de Conversación] ───────────────────────────> [Motor LLM Llama 3]
-│
-▼
-[Respuesta con Trazabilidad]
+---
 
-## Frameworks e Integraciones (IE2, IE3 y IE4)
-**Framework Central:** LangChain, utilizado para estructurar las cadenas de ejecución (Chains) de forma modular y compatible.
- **Base de Datos Vectorial:** ChromaDB, encargada de indexar y recuperar el contexto técnico relevante en milisegundos.
- **Modelo de Embeddings:** `all-MiniLM-L6-v2` de HuggingFace, ocupado para convertir el texto técnico en densidades vectoriales matemáticas.
- **Modelo de Lenguaje (LLM):** Ollama ejecutando Llama 3 de manera local, garantizando la privacidad y confidencialidad de los manuales de la empresa.
- **Memoria de Contenido:** Conexión de historial conversacional para dar continuidad y retención a flujos prolongados en terreno.
+##  Requisitos e Instalación
 
-## Reglas Operativas e Inferencia (IE5 y IE6)
-1 **Planificación Estricta:** Clasificación previa de la consulta en tres niveles de criticidad (Normal, Alta, Crítica) para secuenciar prioridades operativas.
-2 **Protocolo Anti-Alucinación:** Restricción mediante Prompt del Sistema que fuerza al agente a declarar desconocimiento si el dato solicitado no existe explícitamente en el manual técnico.
+Para ejecutar este proyecto, asegúrese de instalar las siguientes dependencias:
+
+```bash
+pip install langchain langchain-community langchain-text-splitters langchain-chroma streamlit pandas huggingface-hub

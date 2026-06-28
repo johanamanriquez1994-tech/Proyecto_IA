@@ -1,0 +1,4 @@
+Timestamp,Session_ID,Pregunta,Prioridad,Respuesta_Corta,Latencia_Segundos,Tokens_Caracteres,Status_Error
+2026-06-27 15:03:19,operador_faena_antofagasta,¿Qué medida de seguridad se debe tomar con las mangueras de alta presión?,CRÍTICA: PROTOCOLO DE SEGURIDAD INDUSTRIAL,No cuento con esa información en los manuales inte...,28.079,361,0
+2026-06-27 15:03:38,operador_faena_antofagasta,¿Y qué herramienta debo usar para inspeccionar la presión de forma segura?,NORMAL: RUTINA DE MANTENIMIENTO PREVENTIVO,AI: No cuento con esa información en los manuales ...,18.992,465,0
+2026-06-27 15:03:54,operador_faena_antofagasta,¿Cuál es el mejor restaurante cerca del taller?,NORMAL: RUTINA DE MANTENIMIENTO PREVENTIVO,AI: No cuento con esa información en los manuales ...,16.424,375,0
